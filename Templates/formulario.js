@@ -7,11 +7,15 @@ const LoginForm = {
   },
   methods: {
     login() {
-      axios
+      axios   
         .post('https://luis373.pythonanywhere.com/login' , { email: this.email, password: this.password })
         // .post('http://localhost:5000/login' , { email: this.email, password: this.password })
         .then(response => {
-          console.log(response)
+              if (response.data==this.email){
+                alert("Email o contraseña invalido : " + response.data)
+                window.location.reload();
+              }else
+              window.location.href = 'https://luis373.pythonanywhere.com/producto';
         });
     }
   },
@@ -48,7 +52,7 @@ const SigninForm ={
           .then(response => {
             console.log(response.data)
             if (response.data==this.email){
-              alert("Se ha registrado correctamente")
+              alert("Se ha registrado correctamente : " + response.data)
               window.location.reload();
             }else
             alert(response.data)
@@ -75,8 +79,6 @@ const SigninForm ={
 `  
 };
     
-
-
 const app = Vue.createApp({
   components: {
     'login-form': LoginForm,

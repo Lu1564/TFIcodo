@@ -162,6 +162,10 @@ def modificarFabricante(id):
     return schema_fabricante.jsonify(fabricante)
 
 # Rutas Cliente
+@app.route('/')
+def hello_world():
+    return 'Hello hola Flask!'
+
 @app.route('/inicio')
 def index():
     return render_template('index.html')
@@ -187,6 +191,8 @@ def login():
     if user:
         login_user(user)
         return redirect(url_for('protected'))
+    else:
+        return email2
     
 @app.route('/signin', methods=['POST'])
 def signin():
@@ -215,7 +221,7 @@ def protected():
 @app.route('/producto')
 @login_required
 def producto():
-    return send_file('Templates/productos.html')
+    return send_file('templates/productos.html')
 
 @app.route('/productos.js')
 def jsProductos():
@@ -229,12 +235,12 @@ def productoX(filename):
 @app.route('/crear-producto')
 @login_required
 def crearProducto():
-    return send_file('Templates/producto-create.html')
+    return send_file('templates/producto-create.html')
 
 @app.route('/update-producto/<id>')
 @login_required
 def updateProducto(id):
-    return send_file('Templates/producto-update.html')
+    return send_file('templates/producto-update.html')
 
 
 @app.route('/update-producto/producto-edit.js')
@@ -250,10 +256,10 @@ def jsPyFo():
 @login_required
 def logout():
     logout_user()
-    return send_file('Templates/logout.html')
+    return send_file('templates/logout.html')
 
 
-# Inicializar Flask-Login
+# Inicializo Flask-Login
 login_manager = LoginManager()
 login_manager.login_view = 'login'
 login_manager.init_app(app)

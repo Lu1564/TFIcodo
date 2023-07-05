@@ -12,9 +12,8 @@ createApp({
             stock: 0,
             precio: 0,
             id_fabricante:"",
-            url: "http://localhost:5000/prueba/producto/" + id,
-           
-            //url: "https://luis373.pythonanywhere.com/prueba/producto" + id,
+            // url: "http://localhost:5000/prueba/producto/" + id,
+            url: "https://luis373.pythonanywhere.com/prueba/producto" + id,
         };
     },
     methods: {
@@ -52,7 +51,8 @@ createApp({
             fetch(this.url, options)
                 .then(function () {
                     alert("Registro actualizado!");
-                    window.location.href = "http://localhost:5000/producto";
+                    //window.location.href = "http://localhost:5000/producto";
+                    window.location.href = "https://luis373.pythonanywhere.com/producto";
                 })
                 .catch((err) => {
                     console.error(err);

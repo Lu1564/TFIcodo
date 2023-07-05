@@ -6,7 +6,7 @@ document.getElementById(
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Productos</a>
+                <a class="nav-link" href="https://luis373.pythonanywhere.com/producto">Productos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Contacto</a>

@@ -7,9 +7,8 @@ createApp({
      */
     return {
       productos: [], // Almacena los productos obtenidos del backend
-      url:"http://localhost:5000/prueba/producto", // URL local
-      //url: "https://luis373.pythonanywhere.com/prueba/producto",
-       // URL del backend donde se encuentran los productos
+      // url:"http://localhost:5000/prueba/producto", 
+      url: "https://luis373.pythonanywhere.com/prueba/producto",
       error: false,
       cargando: true,
       // Atributos para el almacenar los valores del formulario
@@ -76,7 +75,8 @@ createApp({
       fetch(this.url, options)
         .then(function () {
           alert("Registro grabado!");
-          window.location.href = "http://localhost:5000/producto"; // Redirigir a la página de productos
+          //window.location.href = "http://localhost:5000/producto"; // Redirigir a la página de productos
+          window.location.href = "https://luis373.pythonanywhere.com/producto";
         })
         .catch((err) => {
           console.error(err);
