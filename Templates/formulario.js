@@ -8,15 +8,10 @@ const LoginForm = {
   methods: {
     login() {
       axios
-        .post('http://localhost:5000/login' , { email: this.email, password: this.password })
+        .post('https://luis373.pythonanywhere.com/login' , { email: this.email, password: this.password })
+        // .post('http://localhost:5000/login' , { email: this.email, password: this.password })
         .then(response => {
-         
           console.log(response)
-          window.location.href = 'http://localhost:5000/protected';
-
-        })
-        .catch(error => {
-          
         });
     }
   },
@@ -48,15 +43,17 @@ const SigninForm ={
   methods: {
       signin() {
         axios
-          .post('http://localhost:5000/signin' , { email: this.email, password: this.password })
+          .post('https://luis373.pythonanywhere.com/signin' , { email: this.email, password: this.password })
+          // .post('http://localhost:5000/signin' , { email: this.email, password: this.password })
           .then(response => {
-           
-            console.log(response)
-            window.location.href = 'http://localhost:5000/inicio';
+            console.log(response.data)
+            if (response.data==this.email){
+              alert("Se ha registrado correctamente")
+              window.location.reload();
+            }else
+            alert(response.data)
+            window.location.reload();
   
-          })
-          .catch(error => {
-            
           });
       }
   },

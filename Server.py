@@ -201,17 +201,10 @@ def signin():
         db.session.add(nuevoUsuario)
         db.session.commit()
         session['email'] = email2
-        return redirect(url_for('registrado'))
+        return email2
     else:
-        return redirect(url_for('inicio'))
+        return "El usuario ya existe"
     
-@app.route('/registrado')
-def registrado():
-    email = session.get('email')
-    if email:
-        return 'Logeado como: ' + email
-    else:
-        return 'No hay usuario registrado'
     
 @app.route('/protected')
 @login_required
